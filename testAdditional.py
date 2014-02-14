@@ -21,28 +21,28 @@ class TestAddUser(testLib.RestTestCase):
     def testUserExists(self):
         user = self.makeRequest("/users/create", method="POST", data = {'user':'user1', 'password':'pwd1'})
         respData = self.makeRequest("/users/create", method="POST", data = {'user':'user2', 'password':'pwd1'})
-        self.assertResponse(respData, None, testLib.RestTestCase.ERR_USER_EXISTS)
+        self.assertEquals(respData['errCode'], testLib.RestTestCase.ERR_USER_EXISTS)
 
     def testBadUsername(self):
         respData = self.makeRequest("/users/create", method="POST", data={'user':'','password':''})
-        self.assertResponse(respData, None, testLib.RestTestCase.ERR_BAD_USERNAME)
+        self.assertEquals(respData['errCode'], testLib.RestTestCase.ERR_BAD_USERNAME)
 
     def testBadPassword(self):
         respData = self.makeRequest("/users/create", method="POST", data={'user':'user2', 'password':'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'})
-        self.assertResponse(respData, None, testLib.RestTestCase.ERR_BAD_PASSWORD)
+        self.assertEquals(respData['errCode'], testLib.RestTestCase.ERR_BAD_PASSWORD)
 
     def testLogin(self):
         user = self.makeRequest("/users/create", method="POST", data = {'user':'user3', 'password':'pwd3'})
         respData = self.makeRequest("/users/login", method="POST", data = {'user':'user3', 'password':'pwd3'})
-        self.assertResponse(respData, count = 2)
+        self.assertEquals(respData['errCode'], testLib.RestTestCase.SUCCESS)
 
     def testBadCredentials(self):
         user = self.makeRequest("/users/create", method="POST", data = {'user':'user4', 'password':'pwd4'})
         respData = self.makeRequest("/users/login", method="POST", data = {'user':'user4', 'password':'pwd5'})
-        self.assertResponse(respData, None, testLib.RestTestCase.ERR_BAD_CREDENTIALS)
+        self.assertEquals(respData['errCode'], testLib.RestTestCase.ERR_BAD_CREDENTIALS)
 
     def testReset(self):
         user = self.makeRequest("/users/create", method="POST", data = {'user':'user5', 'password':'pwd5'})
         self.makeRequest('/TESTAPI/resetFixture', method="POST", data = {})
         respData = self.makeRequest("/users/create", method="POST", data = {'user':'user5', 'password':'pwd5'})
-        self.assertResponse(respData, count = 1)
+        self.assertEquals(1, respData['errCode'])
