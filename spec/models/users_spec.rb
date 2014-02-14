@@ -18,13 +18,13 @@ describe Users do
   #  	expect(Users.add("user", """")).to eq(Users::SUCCESS)
   # end
 
-  # it "username is empty" do
-  # 	expect(Users.add('', 'password')).to eq(Users::ERR_BAD_USERNAME)
-  # end
+  it "username is empty" do
+  	expect(Users.add('', 'password')).to eq(Users::ERR_BAD_USERNAME)
+  end
 
-  # it "username is too long" do
-  # 	expect(Users.add("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "password")).to eq(Users::ERR_BAD_USERNAME)
-  # end
+  it "username is too long" do
+  	expect(Users.add("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "password")).to eq(Users::ERR_BAD_USERNAME)
+  end
 
   it "user already exists" do
   	user = Users.add("user1", "pwd1")
