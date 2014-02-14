@@ -12,7 +12,9 @@ class Users < ActiveRecord::Base
 		#p "*"*90
 		#p password
 		#p username.password
-		if password != username.password
+		if username.blank?
+			ERR_BAD_CREDENTIALS
+		elsif password != username.password
 			ERR_BAD_CREDENTIALS
 		else
 			username.count += 1
