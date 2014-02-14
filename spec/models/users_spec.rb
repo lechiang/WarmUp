@@ -5,10 +5,10 @@ describe Users do
   #  	expect(Users.add("John", "Smith")).to eq(Users::SUCCESS)
   # end
 
-  # it "login user" do
-  # 	user = Users.add("John", "Smith")
-  # 	expect(Users.login("John", "Smith")).to eq(2)
-  # end
+  it "login user" do
+  	user = Users.add("John", "Smith")
+  	expect(Users.login("John", "Smith")).to eq(2)
+  end
 
   it "password is too long" do
   	expect(Users.add("Lesley", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).to eq(Users::ERR_BAD_PASSWORD)
