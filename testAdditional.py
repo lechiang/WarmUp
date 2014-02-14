@@ -20,7 +20,7 @@ class TestAddUser(testLib.RestTestCase):
 
     def testUserExists(self):
         user = self.makeRequest("/users/add", method="POST", data = {'user':'user1', 'password':'pwd1'})
-        respData = self.makeRequest("/users/add", method="POST", data = {'user':'user2', 'password':'pwd1'})
+        respData = self.makeRequest("/users/add", method="POST", data = {'user':'user1', 'password':'pwd2'})
         self.assertEquals(testLib.RestTestCase.ERR_USER_EXISTS, respData['errCode'])
 
     def testBadUsername(self):
