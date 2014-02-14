@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Users do
-  # it "adds user" do
-  #  	expect(Users.add("John", "Smith")).to eq(Users::SUCCESS)
-  # end
+  it "adds user" do
+   	expect(Users.add("John", "Smith")).to eq(Users::SUCCESS)
+  end
 
   it "login user" do
   	user = Users.add("John", "Smith")
