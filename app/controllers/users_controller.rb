@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       #render :welcome, 
       render json: test
     elsif valid == -4
-      test = {errCode: valid}
+      test = {errCode: valid}	
       #render :action => "bad_password"
       render json: test
     elsif valid == -3
@@ -68,9 +68,9 @@ class UsersController < ApplicationController
   end
 
   def unitTests
-  	failures = /(\d+) failures/.match(output)[1]
   	output = `rspec #{Rails.root}/spec/`
     example = /(\d+) example/.match(output)[1]
+    failures = /(\d+) failures/.match(output)[1]
     render json: {nrFailed: failures, output: output, totalTests: example}
   end
 

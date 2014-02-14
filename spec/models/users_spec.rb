@@ -7,7 +7,7 @@ describe Users do
 
   it "login user" do
   	user = Users.add('John', 'Smith')
-  	expect(Users.login('John', 'Smith')).to eq(Users::SUCCESS)
+  	expect(Users.login('John', 'Smith')).to eq(2)
   end
 
   it "password is too long" do
