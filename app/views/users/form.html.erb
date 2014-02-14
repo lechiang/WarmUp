@@ -1,0 +1,17 @@
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Login', :name => 'login' %>
+    <%= submit_tag 'Add User', :name => 'add_user' %>
+  </div>
+    
+<% end %>
