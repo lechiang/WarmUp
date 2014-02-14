@@ -17,7 +17,7 @@ class Users < ActiveRecord::Base
 		else
 			username.count += 1
 			username.save
-			SUCCESS
+			username.count
 		end
 	end
 

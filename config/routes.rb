@@ -6,8 +6,8 @@ Wu1::Application.routes.draw do
   get '/user', to: 'users#view', as: :user_view
   post '/user', to: 'users#kevin', as: :users_index
 
-  post '/user/add', to: 'users#create', as: :user_add
-  post '/user/login', to: 'users#login', as: :user_login
+  post '/users/add', to: 'users#create', as: :user_add
+  post '/users/login', to: 'users#login', as: :user_login
 
   post '/TESTAPI/resetFixture', to: 'users#resetFixture'
   post '/TESTAPI/unitTests', to: 'users#unitTests'

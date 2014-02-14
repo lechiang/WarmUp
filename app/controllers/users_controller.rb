@@ -16,10 +16,11 @@ class UsersController < ApplicationController
     input_user = params[:user]
     input_pwd= params[:password]
     valid = Users.login(input_user, input_pwd)
-    if valid == 1
+
+    if valid > 0
     	@user = input_user
-      @count = Users.count(input_user)
-      test = {errCode: valid, count: @count}
+      @count = valid
+      test = {errCode: 1, count: @count}
       #render :welcome
       render json: test
     else 
@@ -36,10 +37,10 @@ class UsersController < ApplicationController
     input_pwd= params[:password]
     valid = Users.add(input_user, input_pwd)
     
-    if valid == 1
+    if valid > 0
       @user = input_user
-      @count = Users.count(input_user)
-      test = {errCode: valid, count: @count}
+      @count = valid
+      test = {errCode: 1, count: @count}
       #render :welcome, 
       render json: test
     elsif valid == -4
