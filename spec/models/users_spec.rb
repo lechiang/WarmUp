@@ -10,14 +10,14 @@ describe Users do
   	expect(Users.login("John", "Smith")).to eq(2)
   end
 
-  it "password is too long" do
-    user = Users.add("Lesley", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
- 	  expect(user).to eq(Users::ERR_BAD_PASSWORD)
-  end
-
-  # it "add user with empty password" do
-  #  	expect(Users.add("user", "")).to eq(Users::SUCCESS)
+  # it "password is too long" do
+  #   user = Users.add("Lesley", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+ 	#   expect(user).to eq(Users::ERR_BAD_PASSWORD)
   # end
+
+  it "add user with empty password" do
+   	expect(Users.add("user", "")).to eq(Users::SUCCESS)
+  end
 
   it "username is empty" do
   	expect(Users.add('', 'password')).to eq(Users::ERR_BAD_USERNAME)
