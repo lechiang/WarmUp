@@ -43,19 +43,7 @@ class UsersController < ApplicationController
       test = {errCode: 1, count: @count}
       #render :welcome, 
       render json: test
-    elsif valid == -4
-      test = {errCode: valid}	
-      #render :action => "bad_password"
-      render json: test
-    elsif valid == -3
-      #flash[:notice] = "The user name should be non-empty and at most 128 characters long. Please try again." 
-      #flash[:color] = "invalid"
-      test = {errCode: valid}
-      #render :action => "bad_username"
-      render json: test
-    else valid == -2
-      #flash[:notice] = "This user name already exists. Please try again."
-      #flash[:color] = "invalid"
+    else
       test = {errCode: valid}
       #render :action => "user_exists"
       render json: test
@@ -69,6 +57,8 @@ class UsersController < ApplicationController
 
   def unitTests
   	output = `rspec #{Rails.root}/spec/`
+  	p '*'*50
+  	p output
     example = /(\d+) example/.match(output)[1]
     failures = /(\d+) failures/.match(output)[1]
     render json: {nrFailed: failures.to_i, output: output, totalTests: example.to_i}
