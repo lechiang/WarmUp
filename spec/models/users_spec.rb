@@ -15,7 +15,7 @@ describe Users do
   end
 
   it "add user with empty password" do
-   	expect(Users.add("user", """")).to eq(Users::SUCCESS)
+   	expect(Users.add("user", "")).to eq(Users::SUCCESS)
   end
 
   it "username is empty" do
