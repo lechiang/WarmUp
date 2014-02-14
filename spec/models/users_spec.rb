@@ -26,15 +26,15 @@ describe Users do
   # 	expect(Users.add("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "password")).to eq(Users::ERR_BAD_USERNAME)
   # end
 
-  # it "user already exists" do
-  # 	user = Users.add("user1", "pwd1")
-  # 	expect(Users.add("user1", "pwd1")).to eq(Users::ERR_USER_EXISTS)
-  # end
+  it "user already exists" do
+  	user = Users.add("user1", "pwd1")
+  	expect(Users.add("user1", "pwd1")).to eq(Users::ERR_USER_EXISTS)
+  end
 
-  # it "bad credentials" do
-  # 	user = Users.add("user2", "pwd2")
-  # 	expect(Users.login("user2", "pwd3")).to eq(Users::ERR_BAD_CREDENTIALS)
-  # end
+  it "bad credentials" do
+  	user = Users.add("user2", "pwd2")
+  	expect(Users.login("user2", "pwd3")).to eq(Users::ERR_BAD_CREDENTIALS)
+  end
 
   it "correct count number" do
   	user = Users.add("user3", "pwd3")
