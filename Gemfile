@@ -40,7 +40,7 @@ end
 
 gem 'rspec-rails', '~> 3.0.0.beta'
 
-gem 'rails_12factor', group: :production
+#gem 'rails_12factor', group: :production
 
 ruby '1.9.3'
 
