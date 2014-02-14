@@ -41,12 +41,12 @@ describe Users do
   	expect(user).to eq(1)
   end
 
-  # it "correct count 2" do
-  # 	user = Users.add("user3", "pwd3")
-  # 	user1 = Users.add("user3", "pwd3")
-  # 	user2 = Users.login("user3", "pwd3")
-  # 	expect(Users.count("user3")).to eq(2)
-  # end
+  it "correct count 2" do
+  	user = Users.add("user3", "pwd3")
+  	user1 = Users.add("user3", "pwd3")
+  	user2 = Users.login("user3", "pwd3")
+  	expect(Users.count("user3")).to eq(2)
+  end
 end
 
 
