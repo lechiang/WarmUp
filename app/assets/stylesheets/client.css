@@ -1,0 +1,16 @@
+.box {
+    width: 400px;
+    height: 300px;
+    border: thick blue solid;
+    background-color: rgb(192,192,192);
+}
+
+.message {
+    margin: 10px 20px 10px 20px;
+    border: thin black solid;
+}
+
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+

@@ -6,6 +6,7 @@ Wu1::Application.routes.draw do
   #get '/user', to: 'users#view', as: :user_view
   #post '/user', to: 'users#kevin', as: :users_index
 
+  get '/users/client'
   post '/users/add', to: 'users#create', as: :user_add
   post '/users/login', to: 'users#login', as: :user_login
 
